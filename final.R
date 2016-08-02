@@ -56,7 +56,7 @@ for (i in 1:length(dg)){
   den[i]<-edge_density(dg[[i]])
   dia[i]<-diameter(dg[[i]])
   subCen[i]<-mean(subgraph.centrality(dg[[i]]))
-  richCC[i]<-rich.club.coeff(dg[[i]])$phi
+  richCC[i]<-rich.club.coeff(dg[[i]],k=5)$phi
   cenEigen[i]<-mean(eigen_centrality(dg[[i]])$vector)
 }
 #build a data frame df for measures results
