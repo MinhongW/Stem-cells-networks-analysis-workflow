@@ -13,13 +13,11 @@ vertices
 #ids reid the vertices(cause vertices are not consequent numbers)
 ids<-1:length(vertices)
 names(ids)<-vertices;
-
 #Get edges
 from<-as.character(data[,12])
 to<-as.character(data[,13])
 edges<-matrix(c(ids[from],ids[to]),ncol=2)
 edges
-
 #Generate original graph
 g<-graph.empty(directed=F)
 g<-add.vertices(g,length(vertices))
@@ -118,15 +116,15 @@ y1=df$dia
 x1=(df$aveD)/(df$den)
 plot(y1 ~ x1,xlab="aveD/den",ylab="dia",col = df$conditions,main="dia~aveD/den",type='p',pch=16)
 with(df,text(x = x1, y = y1, pos = 1))
-y2=(df$aveD)/(df$aveClo)
-x2=(df$richCC)
-plot(y2 ~ x2,xlab="richCC",ylab="aveD/aveClo",col = df$conditions,main="aveD/aveClo~richCC",type='p',pch=16)
+y2=(df$avePL)/(df$aveClo)
+x2=(df$aveD)
+plot(y2 ~ x2,xlab="aveD",ylab="avePL/aveClo",col = df$conditions,main="avePL/aveClo~aveD",type='p',pch=16)
 with(df,text(x = x2, y = y2, pos = 1))
 y3=df$aveBet
 x3=(df$avePL)/(df$gCC)
 plot(y3 ~ x3,xlab="avePL/gCC",ylab="aveBet",col = df$conditions,main="aveBet~avePL/gCC",type='p',pch=16)
 with(df,text(x = x3, y = y3, pos = 1))
-x4=df$aveD
-y4=(df$avePL)/(df$aveClo)
-plot(y4 ~ x4,ylab="avePL/aveClo",xlab="aveD",col = df$conditions,main="avePL/aveClo~aveD",type='p',pch=16)
+x4=df$richCC
+y4=(df$aveD)/(df$aveClo)
+plot(y4 ~ x4,ylab="aveD/aveClo",xlab="richCC",col = df$conditions,main="aveD/aveClo~richCC",type='p',pch=16)
 with(df,text(x = x4, y = y4, pos = 1))
